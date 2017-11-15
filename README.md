@@ -5,7 +5,7 @@ Generate an IDC script to colorize IDA Pro basic blocks using DynamoRIO's drcov 
 ## Installation
 
 1. Install Python
-2. Download DynamoRIO from dynamorio.org. Unzip to a directory on your system.
+2. Download DynamoRIO 7 or later from dynamorio.org. Unzip to a directory on your system. Dynapstalker will not work with versions of the `drcov` utility from DynamoRIO prior to DynamoRIO 7.
 3. Launch your target app using `drcov`, generating ASCII log file output, as shown: `drrun.exe -t drcov -dump_text -- targetapp.exe `
 4. When `targetapp.exe` exits, `drcov` will generate a log file, identifying all the reached blocks.
 5. Convert the `drcov` log file to IDA Pro scripting format using `dynapstalker`: `$ python dynapstalker.py sample/drcov.Savant.exe.03632.0000.proc.log savant.exe out.idc`

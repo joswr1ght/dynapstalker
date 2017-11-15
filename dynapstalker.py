@@ -194,7 +194,7 @@ f=open(sys.argv[1])
 for line in f:
     i+=1
     if id == None:
-        if "savant.exe" in line.lower():
+        if sys.argv[2].lower() in line.lower():
             id, base = line.split(", ")[0:2]
             id = int(id)
             base = int(base, 16)
