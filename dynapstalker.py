@@ -13,14 +13,14 @@ import re
 import pdb
 
 if len(sys.argv) < 4:
-    print "Usage: %s drcov-log-file process-name output-idc-script [0xrrggbb color]\n" % sys.argv[0]
+    print("Usage: %s drcov-log-file process-name output-idc-script [0xrrggbb color]\n" % sys.argv[0])
     sys.exit(1)
 
 if len(sys.argv) == 5:
     if (len(sys.argv[4]) == 8) and (sys.argv[4][0:2].lower() == "0x"):
         color = sys.argv[4]
     else:
-        print "Color code must be RGB formatted, starting with 0x."
+        print("Color code must be RGB formatted, starting with 0x.")
         sys.exit(-1)
 else:
     color = "0x00ffff"
@@ -213,7 +213,7 @@ for line in f:
             blockstart = int(re.match("module\[.*\]: (0x[0-9a-f]+),", line).groups()[0], 16)
             idc += " " * 8 + "if (GetColor(%s, CIC_ITEM) == DEFCOLOR) assign_block_color_to(%s, color);\n" % (hex(base + blockstart), hex(base + blockstart))
     except AttributeError:
-        print "%d: %s"%(i,line)
+        print("%d: %s"%(i,line))
 f.close()
 idc += r"""
     }
