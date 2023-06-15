@@ -123,7 +123,7 @@ static find_block_end (current_ea)
 }
 
 // return the lower case version of 'str'.
-static tolower (str)
+static tolower_dynapstalker (str)
 {
     auto i, c, newstr;
 
@@ -184,7 +184,7 @@ static main()
     next_mark = get_marked_next();
 
 """
-idc += "    if (tolower(this_module) == \"%s\") {\n" % sys.argv[2].lower()
+idc += "    if (tolower_dynapstalker(this_module) == \"%s\") {\n" % sys.argv[2].lower()
 idc += "\n        color = %s;\n" % color
 
 
